@@ -1,14 +1,13 @@
-import { User } from "../../entities/User";
 import { IUsersRepository } from "../IUsersRepository";
 import { User } from "../../entities/User";
 
-export class PostgresUsersRepository implements IUsersRepository {
+export class MysSqlUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
     async findByEmail(email: string): Promise<User> {
-      const user = this.users.find(user => user.email == email);
+      const user = this.users.find(user => user.mail === email);
       
-      return user;
+       return user;
     }
 
     async save(user: User): Promise<void> {
